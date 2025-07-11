@@ -43,6 +43,9 @@ public class User {
 	@JsonManagedReference
 	private List<Customer> customers;
 
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Seller> sellers;
+
 	public User() {
 	}
 
@@ -141,8 +144,12 @@ public class User {
 		this.customers = customers;
 	}
 
-	
-	
-	
-	
+
+	public List<Seller> getSellers() {
+		return sellers;
+	}
+
+	public void setSellers(List<Seller> sellers) {
+		this.sellers = sellers;
+	}
 }
